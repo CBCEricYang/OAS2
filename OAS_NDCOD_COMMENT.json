@@ -1,0 +1,91 @@
+
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "國家發展委員會 政府資料開放平臺 我有話要說API Service",
+        "description": "## 國家發展委員會政府資料開放平臺提供資料使用者透過API Service取得我有話要說之詳細資訊。<br/>* 我有話要說的標準規範：   我有話要說之資料規範可參考國家發展委員會所頒布的「[我有話要說、我想要更多、品質檢測介接規範](https://file.data.gov.tw/content/%E5%9C%8B%E5%AE%B6%E7%99%BC%E5%B1%95%E5%A7%94%E5%93%A1%E6%9C%83_%E6%88%91%E6%9C%89%E8%A9%B1%E8%A6%81%E8%AA%AA%E3%80%81%E6%88%91%E6%83%B3%E8%A6%81%E6%9B%B4%E5%A4%9A%E3%80%81%E5%93%81%E8%B3%AA%E6%AA%A2%E6%B8%ACAPI%E8%A6%8F%E7%AF%84%E6%96%87%E4%BB%B6_10903.pdf)」為原則。<br/>* 我有話要說API 的使用：   我有話要說API 依據規範設計了兩個取得資訊，其一為政府資料開放平臺所有資料集底下的我有話要說編號，其二為針對某特定資料集底下的我有話要說詳細資訊。",
+        "version": "2.0"
+    },
+    "servers": [
+      {
+        "url": "https://data.gov.tw"
+      }
+    ],
+    "paths": {
+        "/api/v2/rest/comments": {
+            "get": {
+                "tags": [
+                    "我有話要說API Service"
+                ],
+                "description": "回傳政府資料開放平臺之所有資料集底下的我有話要說編號(CID)",
+                "parameters": [{
+                        "name": "limit",
+                        "in": "query",
+                        "description": "搜尋資料集數量限制",
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "依據資料集編號排序(ASC是升序，DESC是降序)",
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "ASC"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Definition generated from Swagger Inspector",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "0": {
+                                        "value": "success:true"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/rest/comment/dataset": {
+            "get": {
+                "tags": [
+                    "我有話要說API Service"
+                ],
+                "description": "回傳政府資料開放平臺之單筆資料集底下的我有話要說詳細資訊。",
+                "parameters": [{
+                    "name": "datasetID",
+                    "in": "query",
+                    "description": "請填入政府資料開放平臺的資料集識別碼(datasetID)",
+                    "allowEmptyValue": false,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "example": "6564"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Definition generated from Swagger Inspector",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "0": {
+                                        "value": "success:true"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

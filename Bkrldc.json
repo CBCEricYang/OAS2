@@ -1,0 +1,38 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "中央銀行-前日金融機構牌告存放款利率異動資訊API Service",
+    "description": "## 取得中央銀行-前日金融機構牌告存放款利率異動資訊",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://cpx.cbc.gov.tw/BIRWEB"
+    }
+  ],
+  "paths": {
+    "/api/Bkrldc": {
+      "get": {
+        "tags": [
+          "中央銀行-前日金融機構牌告存放款利率異動資訊API Service"
+        ],
+        "description": "回傳政府資料開放平臺之中央銀行-前日金融機構牌告存放款利率異動資訊",
+        "responses": {
+          "200": {
+            "description": "Definition generated from Swagger Inspector",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "BkrldcData": {
+                    "summary": "An example of BkrldcData",
+                    "value": "資料日期:'1050513', 金融機構代號及名稱:'0060000 合作金庫銀行', 異動識別碼:'1050513-090156', 異動別:'刪除', 牌告利率項目:'定期存款', 存期:'1月', 額度:'4億', 生效日期:'1050516', 固定利率_調升或調降:'', 機動利率_調升或調降:''"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
